@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Cart</title>
+<!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+</head>
+<body>
+
+<ul class="nav justify-content-end">
+   <li class="nav-item">
+    <a class="nav-link active" th:href="@{'/products'}" href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" th:href="@{'/logout'}">Logout</a>
+  </li>
+</ul>
+
+<div class="container">
+<div align="center">
+<h1>Cart</h1>
+</div>
+<form>
+<table class="table">
+<tr>
+<th>Product Id</th>
+<th>Product Name</th>
+<th>Quantity</th>
+<th>Price</th>
+</tr>
+    <tr th:each="cartProduct: ${cartProductList}">
+        <td th:text="${cartProduct.product.productId}" />
+        <td th:text="${cartProduct.product.productName}" />
+         <td th:text="${cartProduct.quantity}" />
+        <td th:text="${cartProduct.product.price}" />
+        
+    </tr>
+
+    <tr>
+        <td colspan="3" >Total</td>
+        <td><b th:text="${TotalPrice}" /></td>
+    </tr>
+    
+</table>
+	<br>
+	<br>
+	<div align="center">
+    <a  th:href="@{'/cartorder/'+${cartProductList[0].cart.cartId}}">Proceed to Checkout</button>
+	</div>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Products List</title>
+<!-- Bootstrap core CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}" />
+</head>
+
+<body>
+
+	<ul class="nav justify-content-end">
+	<span th:if="${session.LoginUser.userType} == 'Buyer'">
+		<li class="nav-item"><a class="nav-link active"
+			th:href="@{'/role'}" href="#">Register as Seller</a></li>
+	</span>
+	<span th:if="${session.LoginUser.userType} == 'Seller'">
+        <li class="nav-item"><a class="nav-link active"
+            th:href="@{newproduct}" href="#">Add Product</a></li>
+    </span>
+		<li class="nav-item"><a class="nav-link active"
+			th:href="@{'/cart'}" href="#">View Cart</a></li>
+		<li class="nav-item"><a class="nav-link" th:href="@{'/logout'}">Logout</a>
+		</li>
+	</ul>
+
+	<div class="card" th:if="${listProducts != null}"
+		th:each="products : ${listProducts}">
+		<div class="card-body">
+			<b><label>Product Name:</label></b>
+			<span th:text="*{products.productName}"></span>
+			<p>
+				<b><label>Description:</label></b> <span th:text="*{products.description}"></span>
+			</p>
+			<p>
+				<b><label>Price:</label></b> <span th:text="*{products.price}"></span>
+			</p>
+			<a href="#" class="card-link"
+				th:href="@{'/product/'+${products.productId}}">Product Details</a>
+		</div>
+	</div>
+    
+    <span th:if="${listProducts == null}">
+		<h2>
+			No products Present!!.<br /> Register as Seller and add Products.
+		</h2>
+	</span>
+
+</body>
+</html>
+

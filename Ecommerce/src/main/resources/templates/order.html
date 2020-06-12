@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xlmns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>place order</title>
+<!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+</head>
+<body>
+
+<ul class="nav justify-content-end">
+   <li class="nav-item">
+    <a class="nav-link active" th:href="@{'/products'}" href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" th:href="@{'/logout'}">Logout</a>
+  </li>
+</ul>
+
+<div class="container">
+<div class="split left">
+<div class="centered">
+<form>
+<div align="center">
+<h3>Your Order Details</h3>
+</div>
+<table class=table>
+<tr>
+<td>Order Id:</td>
+<td th:text="${orderLineList[0].customerOrder.orderId}"></td>
+</tr>
+<tr>
+<td>Name</td>
+<td th:text="${orderLineList[0].customerOrder.user.fullName}"></td>
+</tr>
+<tr>
+</table>
+
+<table class="table">
+<thead>
+<tr>
+<td>Product Id</td>
+<td> Quantity </td>
+<td> Price</td>
+</tr>
+</thead>
+ <tr th:each="orderLine: ${orderLineList}">
+        <td th:text="${orderLine.product.productId}" />
+        <td th:text="${orderLine.quantity}" />
+        <td th:text="${orderLine.price}" />
+    </tr>
+ <tr>
+        <td colspan="2" >Total</td>
+        <td><b th:text="${TotalPrice}" /></td>
+    </tr>
+</table>
+<div align="center">
+<a th:href="@{'/transaction/'+${orderLineList[0].customerOrder.orderId}}">Pay</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" xlmns:th="http://www.thymeleaf.org">
+<title>Product Details</title>
+<!-- Bootstrap core CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}" />
+</head>
+<body>
+
+<ul class="nav justify-content-end">
+   <li class="nav-item">
+    <a class="nav-link active" th:href="@{'/products'}" href="#">Home</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link active" th:href="@{'/cart'}" href="#">View Cart</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" th:href="@{'/logout'}">Logout</a>
+  </li>
+</ul>
+<form action=""
+        th:action="@{'/cart/'+${product.productId}(purchQty=${purchQty})}"
+        th:object="${product}" method="get">
+		<div class="container">
+			<div>
+				<b><label>Product ID:</label></b>
+				<span th:text="*{productId}"></span>
+			</div>
+			<div>
+			     <b><label>Product Name:</label></b>
+				  <span th:text="*{productName}"></span>
+			</div>
+			<div>
+			  <b><label>Description:</label></b>
+                  <span th:text="*{description}"></span>
+			</div>
+			<div>
+			     <b><label>Sold by:</label></b>
+                  <span th:text="*{user}"></span>
+			</div>
+			<div>
+                 <b><label>Price:</label></b>
+                  <span th:text="*{price}"></span>
+            </div>
+            <div>
+                 <b><label>Return Policy:</label></b>
+                  <span th:text="*{returnPolicy}"></span>
+            </div>
+            <div>
+                 <b><label>Warranty:</label></b>
+                  <span th:text="*{warranty}"></span>
+            </div>
+            <div>
+                 <b><label>Quantity:</label></b>
+                  <span th:text="*{quantity}"></span>
+            </div>
+            <!-- <div>
+                 <b><label>Status:</label></b>
+                  <span th:text="*{status}"></span>
+            </div> -->
+            <div>
+                 <b><label>Category:</label></b>
+                  <span th:text="*{category}"></span>
+            </div>
+		</div>
+		<div align="center" class="form-group">
+		
+        <label>Quantity</label>
+			<input type="text" id="quantity" size="4"
+				th:name="purchQty"  th:value="${purchQty}">
+
+			<button type="submit">Add to cart</button>
+
+		</div>
+	</form>
+</body>
+</html>

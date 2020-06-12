@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vendor Setup</title>
+<!-- Bootstrap core CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}" />
+</head>
+<body>
+	<ul class="nav justify-content-end">
+		<li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+		<li class="nav-item"><a class="nav-link"
+			th:href="@{'/sellerproducts'}">Add your product</a></li>
+	</ul>
+	<div class="container">
+		<form>
+			<div id="myDIV" style="display: none">
+                <div class="form-group">
+                    <label for="btype">Business Type</label><select id="btype"
+                        th:field="*{businessType}" class="form-control"><option
+                            value="Group">Group</option>
+                        <option value="Individual">Individual</option></select>
+                </div>
+                <div class="form-group">
+                    <label for="bname">Business Name</label><input type="text"
+                        placeholder="business name" th:field="*{businessName}" id="bname"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="bph">Business Phone</label><input type="tel"
+                        placeholder="business phone" th:field="*{businessPhone}" id="bph"
+                        class="form-control">
+                </div>
+            </div>
+		</form>
+
+		<button type="submit" class="btn btn-primary">Save</button>
+	</div>
+</body>
+</html>

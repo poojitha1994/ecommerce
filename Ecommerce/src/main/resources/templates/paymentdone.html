@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Successful transaction</title>
+<!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}"/>
+</head>
+<body>
+
+<ul class="nav justify-content-end">
+   <li class="nav-item">
+    <a class="nav-link active" th:href="@{'/products'}" href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" th:href="@{'/logout'}">Logout</a>
+  </li>
+</ul>
+
+<div class="container">
+Payment has been made successfully. Your order ID: <label th:text="${customerOrderId}"></label> & Transaction Id: 
+<label th:text="${transactionList[0].transactionId}"></label> <br>
+<a th:href="@{'/products'}">Home</a>
+</div>
+</body>
+</html>
