@@ -1,7 +1,7 @@
 # ecommerce
 
 
-Project Title: E-commerce platform
+<h3> Project Title: E-commerce platform </h3>
 
 Objective: The projective of this project is to build a e-commerce platform where seller and buyer can colloborate.
 
