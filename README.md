@@ -3,24 +3,25 @@
 
 <h3> Project Title: E-commerce platform </h3>
 
-Objective: The projective of this project is to build a e-commerce platform where seller and buyer can colloborate.
+<h2> Objective: The projective of this project is to build a e-commerce platform where seller and buyer can colloborate.</h2>
 
-Libraries used:
-Bootstrap
-Javascript
-Thymeleaf
-Spring JPA
-H2 database
-Spring web
+<h2> Libraries used:</h2>
+<ul>
+<li>Bootstrap</li>
+<li>Javascript</li>
+<li>Thymeleaf</li>
+<li>Spring JPA</li>
+<li>H2 database</li>
+<li>Spring web</li>
 
-Features:
-User registration
-Product Manager (for seller)
-View products (users)
-Cart & checkout
-Order
-Payment
+<h2>Features:</h2>
+<li>User registration</li>
+<li>Product Manager (for seller)</li>
+<li>View products (users)</li>
+<li>Cart & checkout</li>
+<li>Order</li>
+<li>Payment</li>
 
-Steps to run:
-maven clean & build
-java -jar target\ecommerce-0.0.1-SNAPSHOT.jar
+<h2>Steps to run:</h2>
+<li>maven clean & build</li>
+<li>java -jar target\ecommerce-0.0.1-SNAPSHOT.jar</li>
